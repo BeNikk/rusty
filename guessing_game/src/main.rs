@@ -5,7 +5,12 @@ use std::io;
 fn main() {
     println!("Guess the number game");
     let secret_number = rand::thread_rng().gen_range(1..=100);
+    let mut max_tries = 3;
     loop {
+        if max_tries <= 0 {
+            println!("You lost the game");
+            break;
+        }
         println!("Input your guess");
         let mut guess = String::new();
 
@@ -25,5 +30,6 @@ fn main() {
                 break;
             }
         }
+        max_tries -= 1;
     }
 }
