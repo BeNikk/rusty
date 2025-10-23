@@ -1,3 +1,4 @@
+mod functions;
 fn main() {
     let x = 10;
     let y = x;
@@ -5,7 +6,11 @@ fn main() {
                           // by default
     println!("the pointers to x and y are {:p} {:p}", &x, &y);
     let s1 = String::from("hello");
-    let s2 = s1; // these are heap variables, now s1 no longer have ownership of "hello
-                 // string"
+    let mut s2 = s1; // these are heap variables, now s1 no longer have ownership of "hello
+                     // string"
     println!("{s2}");
+    s2 = functions::takes_ownership(s2);
+    println!("s2 is valid here as i returned s2, otherwise s2 won't be valid {s2}",);
+    functions::takes_stack_ownership(y);
+    println!("can still use y because y's copy is moved {y}");
 }
