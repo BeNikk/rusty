@@ -1,5 +1,6 @@
 mod functions;
 mod references;
+mod slice;
 fn main() {
     let x = 10;
     let y = x;
@@ -21,4 +22,6 @@ fn main() {
                       // mutable reference as it may lead to race conditions
     let s2 = references::dangle();
     println!("{s2}");
+    slice::first_word(&String::from("Nikhil Bhatt"));
+    slice::first(&String::from("Nikhil Bhatt"));
 }
