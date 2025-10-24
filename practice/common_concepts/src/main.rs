@@ -33,4 +33,5 @@ fn main() {
     control_flow::iteration(4);
     control_flow::while_iteration(5);
     control_flow::for_iteration_in_array(&array);
+    control_flow::for_loop();
 }

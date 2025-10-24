@@ -35,3 +35,9 @@ pub fn for_iteration_in_array(a: &[i32]) {
         println!("{}", element);
     }
 }
+
+pub fn for_loop() {
+    for i in 0..10 {
+        println!("{i}");
+    }
+}
