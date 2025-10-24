@@ -1,4 +1,5 @@
 mod functions;
+mod references;
 fn main() {
     let x = 10;
     let y = x;
@@ -13,4 +14,11 @@ fn main() {
     println!("s2 is valid here as i returned s2, otherwise s2 won't be valid {s2}",);
     functions::takes_stack_ownership(y);
     println!("can still use y because y's copy is moved {y}");
+    references::calculate_length(&String::from("nikhil"));
+    let mut s3 = String::from("nikhil bhatt");
+    references::mutable_references(&mut s3);
+    println!("{s3}"); // we can't create other references,mutable or immutable if we have one
+                      // mutable reference as it may lead to race conditions
+    let s2 = references::dangle();
+    println!("{s2}");
 }
