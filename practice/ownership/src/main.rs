@@ -24,4 +24,14 @@ fn main() {
     println!("{s2}");
     slice::first_word(&String::from("Nikhil Bhatt"));
     slice::first(&String::from("Nikhil Bhatt"));
+
+    let new_str = String::from("hello world");
+    let sl = &new_str[0..5];
+    println!(" this is the string slice {sl}");
+
+    let mut my_str = String::from("github");
+    let my_ref = &my_str;
+    //  my_str.push_str(" .com"); i cannot mutate the original string after i have taken the
+    //  reference, and then use the referenced variable again. This is against the ownership rule
+    println!("{my_ref}");
 }
