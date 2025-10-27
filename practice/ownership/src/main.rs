@@ -34,4 +34,5 @@ fn main() {
     //  my_str.push_str(" .com"); i cannot mutate the original string after i have taken the
     //  reference, and then use the referenced variable again. This is against the ownership rule
     println!("{my_ref}");
+    slice::slice_word();
 }

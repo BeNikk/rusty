@@ -25,3 +25,13 @@ pub fn first(s: &String) {
         new_str.push(c);
     }
 }
+
+pub fn slice_word() {
+    let mut nums = [1, 2, 3, 4, 5];
+
+    let slice = &mut nums[1..3];
+    slice[0] = 10;
+
+    nums[0] = 99;
+    println!("{}", nums[0]);
+}
