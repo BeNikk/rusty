@@ -11,7 +11,11 @@ fn main() {
         Some(a) => println!("{}", a),
         None => println!("There is no A in the name"),
     }
-    result::read_file("a.txt");
+    let contents_of_file = result::read_file("a.txt");
+    match contents_of_file {
+        Ok(content) => println!("{}", content),
+        Err(err) => println!("{}", err),
+    }
 }
 enum Shape {
     Rectangle(f64, f64),
