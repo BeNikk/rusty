@@ -35,4 +35,10 @@ fn main() {
     //  reference, and then use the referenced variable again. This is against the ownership rule
     println!("{my_ref}");
     slice::slice_word();
+    let str = create_str();
+    println!("{str}");
+}
+fn create_str() -> String {
+    let s = String::from("nihkil");
+    s
 }
