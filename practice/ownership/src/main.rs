@@ -39,6 +39,5 @@ fn main() {
     println!("{str}");
 }
 fn create_str() -> String {
-    let s = String::from("nihkil");
-    s
+    String::from("nihkil")
 }
