@@ -1,3 +1,6 @@
+struct User<'a> {
+    name: &'a str,
+}
 fn main() {
     println!("Lifetimes");
 
@@ -5,6 +8,9 @@ fn main() {
     let b = String::from("World");
     let longest = longest(&a, &b);
     println!("{}", longest);
+    let name = String::from("hello");
+    let user = User { name: &name };
+    println!("{}", user.name);
 }
 //since the compiler does not know
 //the scope till which the variable would be available
