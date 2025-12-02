@@ -9,3 +9,5 @@ fn main() {
     auth_service::authenticate(creds);
     println!("hello world");
 }
+// auth service is the root crate name
+
