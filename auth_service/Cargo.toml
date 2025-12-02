@@ -5,3 +5,11 @@ edition = "2024"
 
 [dependencies]
 rand = "0.9.2"
+rgb = { version = "0.8.52", features = ["serde"], optional = true }
+serde = { version = "1.0.228", features = ["derive"], optional = true }
+
+
+[features]
+default = ["color"]
+color = ["dep:rgb"]
+shapes = ["color", "dep:serde", "rgb?/serde"]
