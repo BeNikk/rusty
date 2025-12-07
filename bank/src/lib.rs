@@ -1,7 +1,14 @@
+/// documentation comments
 pub struct SavingAccount {
     balance: i32,
 }
 impl SavingAccount {
+    /// creates a `Savings account` with initial balance of 0
+    /// ```
+    /// use bank::SavingAccount;
+    /// let account = SavingAccount::new();
+    /// assert_eq!(account.get_balance(),0);
+    /// ```
     pub fn new() -> SavingAccount {
         SavingAccount { balance: 0 }
     }
