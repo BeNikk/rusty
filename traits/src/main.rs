@@ -1,53 +1,47 @@
-fn main() {
-    let cat = Cat {
-        name: String::from("Cat"),
+trait Park {
+    fn park(&self); // we can have both custom implementation
+    fn dont_park(&self){ // and a default implentation
+        println!("please don't park here");
+    }
+}
+struct VehicleInfo {
+    make:String,
+    model:String,
+    year:u16
+}
+struct Car {
+    info:VehicleInfo
+}
+struct Truck {
+    info:VehicleInfo
+}
+
+impl Truck {
+    fn unload(&self){
+        println!("Unloading truck");
+    }
+}
+
+impl Park for Car {
+    fn park(&self){
+        println!("Car parked here");
+    }
+}
+impl Park for Truck{
+    fn park(&self){
+        println!("truck parked here");
+    }
+    fn dont_park(&self) {
+        println!("new impl of don't park here");
+    }
+}
+
+
+fn main(){
+    let truck = Truck{
+        info:VehicleInfo { make: ("hello".to_owned()), model: ("new".to_owned()), year: (12) }
     };
-    cat.speak();
-    let rect = Rect {
-        width: 32.0,
-        height: 2.0,
-    };
-    println!("area is {}", rect.area());
-    let circ = Circle { radius: 32.0 };
-    println!("the area of circle is {}", circ.area());
-}
-
-trait Speak {
-    fn speak(&self);
-}
-struct Dog {
-    name: String,
-}
-struct Cat {
-    name: String,
-}
-
-impl Speak for Cat {
-    fn speak(&self) {
-        println!("Meow");
-    }
-}
-
-trait area {
-    fn area(&self) -> f64 {
-        1.0
-    }
-}
-struct Rect {
-    width: f64,
-    height: f64,
-}
-struct Circle {
-    radius: f64,
-}
-
-impl area for Rect {
-    fn area(&self) -> f64 {
-        self.width * self.height
-    }
-}
-impl area for Circle {
-    fn area(&self) -> f64 {
-        3.14 * self.radius * self.radius
-    }
+    println!("{}",truck.info.year);
+    truck.dont_park();
+    truck.park();
 }
