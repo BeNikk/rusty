@@ -35,8 +35,13 @@ impl Park for Truck{
         println!("new impl of don't park here");
     }
 }
-
-
+trait Paint{
+    fn paint(&self){
+        println!("painting");
+    }
+}
+// we can implement traits for primitive types as well
+impl Paint for u32{}
 fn main(){
     let truck = Truck{
         info:VehicleInfo { make: ("hello".to_owned()), model: ("new".to_owned()), year: (12) }
@@ -44,4 +49,6 @@ fn main(){
     println!("{}",truck.info.year);
     truck.dont_park();
     truck.park();
+    let num :u32= 32;
+    num.paint();
 }
